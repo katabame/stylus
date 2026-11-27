@@ -1,4 +1,4 @@
-Unreleased
+0.5.1 / 2026-11-27
 ===================
   * fix: CSS math functions with arguments the browser has to resolve (e.g. `min(92vw, 50vh)`) were computed by Stylus when the built-in functions had been parsed before with another file name, as bundlers do while collecting dependencies (Parcel). Built-in functions are now recognized regardless of the parse cache
 
