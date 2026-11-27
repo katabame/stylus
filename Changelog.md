@@ -1,3 +1,18 @@
+Unreleased
+===================
+  * **breaking**: legacy vendor prefixes are no longer generated: the default `vendors` is now `official`, so `@keyframes` aren't duplicated as `@-moz-` / `@-webkit-` / `@-o-keyframes`. Set `vendors = moz webkit o ms official` to restore the previous output
+  * feat: CSS `if()` function (`if(style(...): a; media(...): b; else: c)`)
+  * feat: custom properties with arbitrary values (`--x: { a: b }`, `--list: [1, 2]`) are kept as is
+  * feat: Media Queries Level 4 conditions: `(a) or (b)`, `(not (a))`, `((a) or (b)) and (c)`
+  * fix: `and` / `or` / `not` in `@container` and other at-rule preludes (`and` was output as `&&`)
+  * fix: CSS grid line names (`[full-start] 1fr [full-end]`) were parsed as subscripts
+  * fix: a `/` before `[` in property values (`grid-template: ... / [col] auto`) was dropped
+  * fix: interpolated selectors containing commas dropped the following selectors
+  * fix: empty custom properties (`--foo: ;`)
+  * fix: built-in functions (`round()`, `s()`, `p()`...) no longer hijack properties of the same name
+  * fix: `calc(a + b)` nested in another function call was output with double parentheses
+  * chore: update glob to 14 to fix moderate vulnerabilities (GHSA-3g3m-2fjr-6pw4, GHSA-g3hv-75wg-m249)
+
 0.1.0 / 2026-11-27 (@katabame/stylus)
 ===================
   * project forked from Stylus 0.64.0 and published as `@katabame/stylus`

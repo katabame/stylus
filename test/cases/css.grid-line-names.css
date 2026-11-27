@@ -1,0 +1,12 @@
+.a {
+  grid-template-columns: [full-start] minmax(1rem, 1fr) [content-start] minmax(0, 60rem) [content-end full-end];
+  grid-template-rows: [header] auto [main] 1fr;
+  grid-template: repeat(2, [row] 1fr)/[col] auto;
+}
+.b {
+  grid-template-columns: [a] 1fr [b];
+}
+.c {
+  subscript: 2;
+  subscript-space: 2;
+}

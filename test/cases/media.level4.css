@@ -1,0 +1,40 @@
+@media (width < 400px) or (width > 800px) {
+  .a {
+    color: #f00;
+  }
+}
+@media screen and (not (hover: hover)) {
+  .b {
+    color: #f00;
+  }
+}
+@media ((width < 1px) or (orientation: portrait)) and (hover) {
+  .c {
+    color: #f00;
+  }
+}
+@media (width < 600px) or (min-width: 1200px) {
+  .d {
+    color: #f00;
+  }
+}
+@media screen and ((width < 1px) or (hover)) {
+  .e {
+    color: #f00;
+  }
+}
+@media not (hover), print and (not (color)) {
+  .f {
+    color: #f00;
+  }
+}
+@media (width < 1px) or (hover) {
+  .g {
+    color: #f00;
+  }
+}
+@media ((width < 1px) or (hover)) and (min-width: 5px) {
+  .g {
+    color: #00f;
+  }
+}

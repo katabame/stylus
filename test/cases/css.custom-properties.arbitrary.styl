@@ -1,0 +1,25 @@
+c = #abc
+
+:root {
+  --block: { a: b };
+  --json: [1, 2, 3];
+  --object: {"a": [1, {"b": 2}]};
+  --grid: [a] 1fr [b];
+  --multiline: {
+    a: b;
+  };
+  --plain: 1px solid red;
+}
+
+:root
+  --color: c
+  --list: [1, 2]
+  --rules: { color: red; margin: 0 }
+  --computed: darken(c, 10%)
+
+@container style(--theme: dark)
+  .a
+    color: red
+
+.b
+  color: var(--x, [fallback])

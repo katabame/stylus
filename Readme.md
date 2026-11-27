@@ -14,6 +14,11 @@ Existing `.styl` files and Stylus plugins are intended to keep working.
 - Commas inside `:is()`, `:where()`, `:not()`, `:has()`, `:nth-child(... of ...)` are kept in a single selector
 - CSS Color 4 syntax: `rgb(0 0 0 / 50%)`, `hsl(120deg 50% 50% / .5)`, `oklch(70% .1 200 / 50%)`, `color-mix(in srgb, red, blue)`, relative colors and `var()` / `none` channels
 - CSS math functions shadowed by built-ins (`min()`, `max()`, `round()`, `abs()`...) are passed through to CSS when they can only be resolved by the browser, e.g. `min(100%, 500px)`
+- Media Queries Level 4 conditions: `(a) or (b)`, `(not (a))`, and `and` / `or` / `not` in `@container`
+- CSS `if()`: `color: if(style(--theme: dark): white; else: black)`
+- Custom properties with arbitrary values: `--rules: { color: red }`, `--list: [1, 2, 3]`
+- CSS grid line names: `grid-template-columns: [full-start] 1fr [full-end]`
+- No legacy vendor prefixes: `@keyframes` are no longer duplicated as `@-moz-`, `@-webkit-` and `@-o-keyframes`. Set `vendors = moz webkit o ms official` to restore them
 
 ## Installation
 

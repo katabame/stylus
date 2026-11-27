@@ -1,0 +1,25 @@
+@container (width > 400px) and (height > 400px) {
+  .a {
+    color: #f00;
+  }
+}
+@container card (min-width: 1px) or (orientation: portrait) {
+  .b {
+    color: #f00;
+  }
+}
+@container not (width > 1px) {
+  .c {
+    color: #f00;
+  }
+}
+@container style(--x: 1) and (not (width > 1px)) {
+  .d {
+    color: #f00;
+  }
+}
+@container (a: 1px) and (b: 2px) {
+  .e {
+    color: #f00;
+  }
+}
