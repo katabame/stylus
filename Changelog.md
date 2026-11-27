@@ -1,3 +1,14 @@
+Unreleased
+===================
+  * fix: multi-line custom property values were broken in 0.3.0 (`--shadow:` followed by the value on the next lines)
+  * fix: values continued on several lines until `;`, lines starting with `;`, newlines within parens and lines ending with `and` / `or`
+  * fix: minified CSS: rules following `}` on the same line (`a{b:c}p{c:d}`), `@keyframes` followed by rules
+  * fix: `<=` / `>=` in at-rule preludes (`@container (width >= 400px)`, `@custom-media`)
+  * fix: custom property names starting with a digit (`--00-l`)
+  * fix: `in <color space>` is a CSS keyword (`linear-gradient(to right in oklab, ...)` was evaluated as the `in` operator)
+  * fix: `@keyframes` are output where they are written instead of at the end of the block
+  * fix: indentation of `@keyframes` and `@media` nested in other at-rules
+
 0.3.0 / 2026-11-27
 ===================
   * **breaking**: arithmetic the browser has to resolve outside CSS math functions now generates `calc()`: `100% - 10px` was compiled to `90%`, `1vw + 1rem` to `2vw`; they are now `calc(100% - 10px)` and `calc(1vw + 1rem)`. `var()` can be used in arithmetic too (`var(--gap) * 2`). Multiplying or dividing two dimensions keeps the previous behavior
