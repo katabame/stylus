@@ -10,7 +10,7 @@ on:
 
 jobs:
   node_tests:
-    name: 'Test stylus on ${{matrix.os}} with node${{matrix.node}}'
+    name: 'Test stylum on ${{matrix.os}} with node${{matrix.node}}'
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
@@ -33,7 +33,7 @@ jobs:
        run: npm run test
 
   compat_node_tests:
-    name: 'Compat test stylus on ${{matrix.os}} with node${{matrix.node}}'
+    name: 'Compat test stylum on ${{matrix.os}} with node${{matrix.node}}'
     strategy:
       matrix:
         os: [ubuntu-latest]
@@ -52,7 +52,7 @@ jobs:
        run: npm run test
 
   benchmark:
-    name: 'Run stylus benchmark with node20'
+    name: 'Run stylum benchmark with node20'
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v4
@@ -67,7 +67,7 @@ jobs:
        run: node ./bm.js
   
   yarn-regression:
-    name: 'yarn exec stylus regression test'
+    name: 'yarn exec stylum regression test'
     runs-on: macos-latest
     steps:
      - uses: actions/checkout@v4
@@ -78,10 +78,9 @@ jobs:
        run: node --version && npm --version
      - name: Install yarn global
        run: npm install -g yarn
-     - name: open a new folder
-       run: cd ./test/yarn
      - name: Run Yarn
-       run: yarn install && yarn add stylus@latest && yarn run stylus --version
+       working-directory: ./test/yarn
+       run: yarn install && yarn add file:../.. && yarn run stylum --version
   
   coverage:
     name: 'Run nyc for code coverage'
@@ -99,7 +98,7 @@ jobs:
        run: npx nyc@latest npm run test
     
   deno_tests:
-    name: 'Test stylus on ${{matrix.os}} with latest stable deno'
+    name: 'Test stylum on ${{matrix.os}} with latest stable deno'
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]

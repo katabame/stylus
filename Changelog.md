@@ -1,3 +1,19 @@
+0.1.0 / 2026-11-27 (Stylum)
+===================
+  * project forked from Stylus 0.64.0 and renamed to Stylum (CLI: `stylum`)
+  * feat: `@layer` statement lists (`@layer reset, base;`)
+  * feat: `@container`, `@layer`, `@scope` and `@starting-style` bubble up when nested in selectors
+  * feat: CSS `@scope (<start>) to (<end>)` at-rule
+  * feat: media query range syntax and `not (<feature>)`
+  * feat: `@supports selector(...)`, `font-tech()` and `font-format()`
+  * feat: CSS Color 4 `/ <alpha>` syntax for `rgb()`, `hsl()`, `lab()`, `oklch()`... and `color-mix(in <space>, ...)`
+  * fix: commas inside `:is()`, `:where()`, `:not()`... no longer split selectors
+  * fix: `min()`, `max()`, `round()`, `abs()`... are passed through to CSS when they can't be computed (mixed units, `var()`, keywords)
+  * fix: `min()` / `max()` accept more than two arguments
+
+Stylus history
+==============
+
 0.64.0 / 2024-10-20
 ===================
   * drop node v14 support [#2899](https://github.com/stylus/stylus/pull/2899)
