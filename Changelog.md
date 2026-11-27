@@ -1,5 +1,7 @@
 Unreleased
 ===================
+  * fix: broken input fails with a `ParseError` instead of an internal error: unclosed strings, binary operators missing an operand (`a <` at the end of a line, `&& b`, `= 1`), found by fuzzing
+  * fix: the parser hung on an unclosed attribute selector at the end of the input (`input[typ`), e.g. while editing in watch mode
   * perf: `@import` paths without glob syntax are looked up directly instead of with `glob` (compiling the nib, kouto-swiss and rupture test cases is ~25% faster than upstream Stylus 0.64.0)
   * feat: `stylus --css` / `convertCSS()` supports modern CSS: CSS nesting, `@layer`, `@container`, `@scope`, `@starting-style`, `@property`, `@custom-media` and other at-rules, and multi-line values (all 532 files of 9 CSS frameworks now convert and compile back without losing declarations, 390 before)
   * chore: update @adobe/css-tools from 4.3 to 5.0, which parses modern CSS (4.5 takes minutes on large files)
