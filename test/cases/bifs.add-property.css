@@ -36,6 +36,14 @@ body {
 @font-face {
   display: flex;
 }
+@keyframes foo {
+  0% {
+    display: flex;
+  }
+  100% {
+    display: block;
+  }
+}
 body {
   display: flex;
 }
@@ -45,13 +53,5 @@ body {
     foo: -webkit-something(4px);
     foo: -moz-something(4px);
     foo: something(4px);
-  }
-}
-@keyframes foo {
-  0% {
-    display: flex;
-  }
-  100% {
-    display: block;
   }
 }
