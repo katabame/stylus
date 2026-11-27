@@ -90,5 +90,7 @@ jobs:
          deno-version: v2.x
      - name: Print deno version
        run: deno --version
+     - name: Install dependencies
+       run: deno install
      - name: Run Test
        run: deno run -A deno/test.ts
