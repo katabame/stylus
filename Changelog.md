@@ -1,3 +1,12 @@
+Unreleased
+===================
+  * fix: source maps: the lines of multi-line values (e.g. `--rules: { ... }`) were counted twice, shifting all the following mappings, `@media` with queries on several lines mapped to the last line, and a spurious mapping was added at the end of each property
+  * fix: `stylus --watch` reports a file missing while it's being saved (editors writing and renaming files) instead of exiting, and no longer watches the built-in functions file
+  * feat: TypeScript definitions (`index.d.ts`) for the API: `stylus()`, the renderer methods and options, `render()`, `middleware()`, `url()`, `resolver()`, `convertCSS()`
+  * fix: `@import '<package>'` finds the stylesheet of CSS packages: their `main` is used only when it's a `.styl` or `.css` file, else their `style` field or `style` export. `@import 'bootstrap'`, `'tailwindcss'` and `'open-props'` imported JavaScript or failed, and `'bulma'` imported its Sass entry
+  * fix: with `hoist atrules`, `@layer` statements before the first rule are kept before the imports following them: moving `@import url(a.css) layer(b)` above `@layer a, b;` changed the layer priority
+  * fix: no `url.parse()` deprecation warning (DEP0169) on Node.js 26 when using `url()` (`stylus.url()`), `stylus.resolver()` or `stylus.middleware()`. The middleware uses the WHATWG `URL`, which also resolves `..` in request paths
+
 0.4.0 / 2026-11-27
 ===================
   * **security**: `stylus.middleware()` compiled `.styl` files outside of `src` and wrote CSS outside of `dest` for request paths containing `..` (e.g. `/../outside.css`). Such paths are now ignored

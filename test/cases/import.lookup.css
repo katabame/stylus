@@ -7,3 +7,12 @@ body {
 body {
   content: 'c';
 }
+.lookup-style {
+  color: #f00;
+}
+.lookup-exports {
+  color: #00f;
+}
+.lookup-scss {
+  color: #008000;
+}

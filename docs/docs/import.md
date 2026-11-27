@@ -20,6 +20,12 @@ Render the literal CSS __@import__ shown below:
 @import "reset.css"
 ```
 
+CSS import conditions are kept, and conditional imports are not inlined with the `include css` option:
+
+```stylus
+@import url("theme.css") layer(theme) supports(display: grid) screen and (min-width: 600px)
+```
+
 ## Stylus Import
 
 *Disclaimer: In all places the __@import__ is used with Stylus sheets, the __@require__ could be used*
@@ -62,6 +68,14 @@ stylus(str)
     if (err) throw err;
     console.log(css);
   });
+```
+
+### Packages
+
+`@import "<package>"` looks up `node_modules/<package>`: its `main` file when it's a `.styl` or `.css` file, else the `style` field or `style` export of its `package.json` (the convention of CSS packages such as Bootstrap or Tailwind CSS), else its `index.styl`.
+
+```stylus
+@import "bootstrap"
 ```
 
 ## Require

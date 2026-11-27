@@ -50,6 +50,14 @@ stylus.render('.a\n  color: red', (err, css) => {
 });
 ```
 
+TypeScript definitions are included:
+
+```ts
+import stylus = require('@katabame/stylus'); // or `import stylus from` with esModuleInterop
+
+const css: string = stylus(source).set('filename', 'style.styl').include('styles').render();
+```
+
 See the [Stylus documentation](https://stylus-lang.com/) for the language reference.
 
 ### Code of Conduct

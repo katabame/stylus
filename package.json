@@ -21,6 +21,7 @@
     "url": "git+https://github.com/katabame/stylus.git"
   },
   "main": "./index.js",
+  "types": "./index.d.ts",
   "browserify": "./lib/browserify.js",
   "engines": {
     "node": ">=22"
@@ -29,7 +30,6 @@
     "stylus": "bin/stylus"
   },
   "scripts": {
-    "prepublish": "npm prune",
     "test": "mocha test/ test/middleware/ --require chai --bail --check-leaks --reporter dot"
   },
   "dependencies": {

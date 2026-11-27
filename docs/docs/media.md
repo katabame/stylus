@@ -135,3 +135,29 @@ would yield to
   }
 }
 ```
+
+## Range syntax and conditions
+
+The range syntax of Media Queries Level 4 is supported, with variables and expressions in its values (the feature name is kept as is):
+
+```stylus
+bp = 600px
+
+@media (width >= bp) and (400px <= height < 800px)
+  .a
+    color red
+```
+
+As well as `or`, `not` and nested conditions:
+
+```stylus
+@media (width < 400px) or (width > 800px)
+  .b
+    color red
+
+@media screen and (not (hover: hover))
+  .c
+    color red
+```
+
+When merged with a nested media query, `or` conditions are wrapped in parens: `((width < 400px) or (hover)) and (min-width: 5px)`.
