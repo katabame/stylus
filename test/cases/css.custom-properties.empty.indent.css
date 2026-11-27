@@ -1,0 +1,11 @@
+:root {
+  --empty: ;
+  --after: 1;
+  --last: ;
+}
+.a {
+  --x: ;
+}
+.a .b {
+  color: #f00;
+}

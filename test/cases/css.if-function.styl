@@ -17,3 +17,11 @@ f(a)
   width: f(true)
   if x
     height: 1px
+
+// Stylus values are evaluated in branches, `{expr}` is interpolated in conditions
+bp = 600px
+brand = #abc
+.d
+  color: if(style(--x: 1): brand; else: darken(brand, 10%))
+  width: if(media(width > {bp}): bp * 2; else: 1px + 2px)
+  combined: if(style(--x: 1) and media(print): 1px; else: 2px)

@@ -1,0 +1,7 @@
+[data-x*="z" i],
+[a="b" s] {
+  color: #f00;
+}
+a[href="x"] span {
+  color: #00f;
+}
