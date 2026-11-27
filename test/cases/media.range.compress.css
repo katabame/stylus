@@ -1,0 +1,1 @@
+@layer reset, base;@media (400px <= width < 800px){.a{color:#f00}}:is(a, b) c{color:#f00}.b{color:rgba(0,0,0,0.5)}

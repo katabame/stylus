@@ -1,0 +1,48 @@
+@media (width >= 600px) {
+  .a {
+    color: #f00;
+  }
+}
+@media screen and (400px <= width < 800px) {
+  .b {
+    color: #f00;
+  }
+}
+@media (width >= 600px) and (height < 1000px) {
+  .c {
+    color: #f00;
+  }
+}
+@media (600px <= width <= 1200px) {
+  .d {
+    color: #f00;
+  }
+}
+@media not (aspect-ratio > 16/9) {
+  .e {
+    color: #f00;
+  }
+}
+@media (width = 600px), (orientation: portrait) {
+  .f {
+    color: #f00;
+  }
+}
+@media (width >= 100px) {
+  .g {
+    width: 100px;
+  }
+}
+.h {
+  color: #f00;
+}
+@media (width > 600px) {
+  .h {
+    color: #00f;
+  }
+}
+@media (width > 600px) and (prefers-reduced-motion: no-preference) {
+  .h {
+    transition: none;
+  }
+}

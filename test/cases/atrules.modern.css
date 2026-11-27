@@ -1,0 +1,68 @@
+@layer reset, base, components;
+@layer base {
+  html {
+    color: #f00;
+  }
+}
+@layer {
+  .anon {
+    color: #f00;
+  }
+}
+.card {
+  color: #f00;
+}
+@layer components {
+  .card {
+    color: #00f;
+  }
+}
+@container sidebar (min-width: 400px) {
+  .card {
+    display: grid;
+  }
+  .card .title {
+    font-size: 2em;
+  }
+}
+@starting-style {
+  .card {
+    opacity: 0;
+  }
+}
+@container (inline-size > 30em) {
+  .card {
+    display: flex;
+  }
+}
+@scope (.card) to (.content) {
+  img {
+    border: 1px solid #000;
+  }
+}
+@scope (.child) {
+  .parent {
+    color: #f00;
+  }
+}
+@supports selector(:has(a, b)) {
+  .x {
+    color: #f00;
+  }
+}
+@supports not selector(:is(a > b)) {
+  .y {
+    color: #f00;
+  }
+}
+@supports selector(a > b) and (display: grid) {
+  .z {
+    color: #f00;
+  }
+}
+@property --my-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #c0ffee;
+}
+@import url("theme.css") layer(theme);

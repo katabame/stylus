@@ -1,0 +1,17 @@
+.a {
+  --computed-min: 1px;
+  --computed-max: 5px;
+  --unitless: 1;
+  --mixed: min(10px, 5vh);
+  --percent: max(100%, 500px);
+  --many: max(1em, 2rem, 3px);
+  --var: max(10px, var(--x));
+  --calc: max(calc(1px + 2px), 3px);
+  --round: 2px;
+  --round-precision: 1.23;
+  --round-strategy: round(up, 10px, 3px);
+  --round-interval: round(10px, 3px);
+  --abs: 2px;
+  --abs-var: abs(var(--x));
+  --clamp: clamp(1rem, 2.5vw, 2rem);
+}

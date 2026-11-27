@@ -1,0 +1,20 @@
+:is(h1, h2, h3):where(.x, .y) {
+  color: #f00;
+}
+a:not(.b, .c),
+d {
+  color: #f00;
+}
+li:nth-child(2n + 1 of .important, .urgent) {
+  color: #f00;
+}
+.card:has(> img, > svg) {
+  padding: 0;
+}
+:is(.a, .b) .card {
+  margin: 0;
+}
+.card:not(.x, .y),
+.card.z {
+  color: #00f;
+}

@@ -1,0 +1,40 @@
+bp = 600px
+max = 1200px
+
+@media (width >= 600px)
+  .a
+    color: red
+
+@media screen and (400px <= width < 800px)
+  .b
+    color: red
+
+@media (width >= bp) and (height < max - 200px)
+  .c
+    color: red
+
+@media (bp <= width <= max)
+  .d
+    color: red
+
+@media not (aspect-ratio > 16/9)
+  .e
+    color: red
+
+@media (width = 600px), (orientation: portrait)
+  .f
+    color: red
+
+size(width)
+  @media (width >= width)
+    .g
+      width: width
+
+size(100px)
+
+.h
+  color: red
+  @media (width > 600px)
+    color: blue
+    @media (prefers-reduced-motion: no-preference)
+      transition: none

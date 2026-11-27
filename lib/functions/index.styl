@@ -28,8 +28,17 @@ require-string(str)
 // Math functions
 
 abs(n) { math(n, 'abs') }
-min(a, b) { a < b ? a : b }
-max(a, b) { a > b ? a : b }
+min(a, b, rest...)
+  ret = a < b ? a : b
+  for n in rest
+    ret = n < ret ? n : ret
+  ret
+
+max(a, b, rest...)
+  ret = a > b ? a : b
+  for n in rest
+    ret = n > ret ? n : ret
+  ret
 
 // Trigonometrics
 PI = -math-prop('PI')

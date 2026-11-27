@@ -1,0 +1,18 @@
+.a {
+  --rgb: rgba(0,0,0,0.5);
+  --rgba: rgba(10,20,30,0.3);
+  --hsl: rgba(64,191,64,0.5);
+  --hsla: rgba(255,0,0,0.25);
+  --opaque: #f00;
+  --legacy: #800000;
+  --darken: rgba(230,0,0,0.5);
+  --lab: lab(50% 40 59.5/0.5);
+  --oklch: oklch(70% 0.1 200/50%);
+  --mix: color-mix(in srgb, #f00 50%, #00f);
+  --mix-hue: color-mix(in oklch longer hue, #f00, #00f);
+  --relative: rgb(from #f00 r g b/50%);
+  --var: rgb(var(--r) 0 0);
+  --var-alpha: rgba(0, 0, 0, var(--a));
+  --none: rgb(none 0 0);
+  --light-dark: light-dark(#000, #fff);
+}

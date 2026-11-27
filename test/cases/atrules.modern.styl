@@ -1,0 +1,52 @@
+@layer reset, base, components;
+
+@layer base
+  html
+    color: red
+
+@layer {
+  .anon { color: red; }
+}
+
+.card
+  color: red
+  @layer components
+    color: blue
+  @container sidebar (min-width: 400px)
+    display: grid
+    .title
+      font-size: 2em
+  @starting-style
+    opacity: 0
+
+@container (inline-size > 30em) {
+  .card { display: flex; }
+}
+
+@scope (.card) to (.content) {
+  img { border: 1px solid black; }
+}
+
+.parent
+  @scope (.child)
+    color: red
+
+@supports selector(:has(a, b)) {
+  .x { color: red; }
+}
+
+@supports not selector(:is(a > b))
+  .y
+    color: red
+
+@supports selector(a > b) and (display: grid)
+  .z
+    color: red
+
+@property --my-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #c0ffee;
+}
+
+@import url("theme.css") layer(theme);
