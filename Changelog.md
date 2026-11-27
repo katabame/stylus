@@ -1,4 +1,4 @@
-Unreleased
+0.3.0 / 2026-11-27
 ===================
   * **breaking**: arithmetic the browser has to resolve outside CSS math functions now generates `calc()`: `100% - 10px` was compiled to `90%`, `1vw + 1rem` to `2vw`; they are now `calc(100% - 10px)` and `calc(1vw + 1rem)`. `var()` can be used in arithmetic too (`var(--gap) * 2`). Multiplying or dividing two dimensions keeps the previous behavior
   * feat: Stylus values are evaluated in CSS `if()` branches, and `{expr}` is interpolated in its conditions
