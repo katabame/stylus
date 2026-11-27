@@ -169,21 +169,6 @@ div {
     color: #f00;
   }
 }
-@-moz-keyframes foo {
-  from {
-    width: 100%;
-  }
-}
-@-webkit-keyframes foo {
-  from {
-    width: 100%;
-  }
-}
-@-o-keyframes foo {
-  from {
-    width: 100%;
-  }
-}
 @keyframes foo {
   from {
     width: 100%;
