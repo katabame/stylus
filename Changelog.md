@@ -1,5 +1,6 @@
 Unreleased
 ===================
+  * fix: with `hoist atrules`, `@layer` statements before the first rule are kept before the imports following them: moving `@import url(a.css) layer(b)` above `@layer a, b;` changed the layer priority
   * fix: no `url.parse()` deprecation warning (DEP0169) on Node.js 26 when using `url()` (`stylus.url()`), `stylus.resolver()` or `stylus.middleware()`. The middleware uses the WHATWG `URL`, which also resolves `..` in request paths
 
 0.4.0 / 2026-11-27

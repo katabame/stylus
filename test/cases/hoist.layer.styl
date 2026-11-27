@@ -1,0 +1,12 @@
+x = 1
+@charset "utf-8";
+// the order in which layers first appear is their priority:
+// statements before the first rule keep their order with imports
+@layer base, reset;
+@import url("reset.css") layer(reset);
+
+.a
+  width: x
+
+@layer extra;
+@import url("late.css");
