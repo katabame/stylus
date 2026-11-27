@@ -1,5 +1,8 @@
 Unreleased
 ===================
+  * **breaking**: legacy vendor prefixes are no longer generated: the default `vendors` is now `official`, so `@keyframes` aren't duplicated as `@-moz-` / `@-webkit-` / `@-o-keyframes`. Set `vendors = moz webkit o ms official` to restore the previous output
+  * feat: CSS `if()` function (`if(style(...): a; media(...): b; else: c)`)
+  * feat: custom properties with arbitrary values (`--x: { a: b }`, `--list: [1, 2]`) are kept as is
   * feat: Media Queries Level 4 conditions: `(a) or (b)`, `(not (a))`, `((a) or (b)) and (c)`
   * fix: `and` / `or` / `not` in `@container` and other at-rule preludes (`and` was output as `&&`)
   * fix: CSS grid line names (`[full-start] 1fr [full-end]`) were parsed as subscripts

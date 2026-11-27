@@ -1,0 +1,24 @@
+:root {
+  --block: { a: b };
+  --json: [1, 2, 3];
+  --object: {"a": [1, {"b": 2}]};
+  --grid: [a] 1fr [b];
+  --multiline: {
+    a: b;
+  };
+  --plain: 1px solid #f00;
+}
+:root {
+  --color: #abc;
+  --list: [1, 2];
+  --rules: { color: red; margin: 0 };
+  --computed: #93a8be;
+}
+@container style(--theme: dark) {
+  .a {
+    color: #f00;
+  }
+}
+.b {
+  color: var(--x, [fallback]);
+}

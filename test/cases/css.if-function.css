@@ -1,0 +1,13 @@
+.a {
+  color: if(style(--x: 1): red; else: blue);
+}
+.b {
+  width: if(media(width > 600px): 10px; supports(display: grid): 20px; else: 30px);
+  margin: 0 if(not style(--x): 1px; else: 2px) 0;
+  padding: if(style(--s: "a;)b"): 1px; else: 2px);
+}
+.c {
+  color: #f00;
+  width: 1;
+  height: 1px;
+}
