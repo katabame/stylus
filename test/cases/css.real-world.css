@@ -1,0 +1,43 @@
+:root {
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+  --highlight: 0 0 0 var(--size);
+  --00-l: var(--00-l);
+  --space: in oklab;
+  --d: calc(((0.5 * var(--a, 0)) + (0.35 * var(--b, 0))) * 1ms);
+}
+@container (width >= 400px) {
+  .a {
+    color: #f00;
+  }
+}
+@custom-media --xxs (0px <= width < 240px);
+@supports (not (a: b)) or (c: d) {
+  .b {
+    e: linear-gradient(to right in oklab, #000, #fff);
+  }
+}
+a {
+  b: c;
+}
+p {
+  c: d;
+}
+@media x {
+  a {
+    b: c;
+  }
+}
+.y {
+  c: d;
+}
+@keyframes r {
+  from {
+    a: b;
+  }
+  to {
+    c: d;
+  }
+}
+.z {
+  e: f;
+}

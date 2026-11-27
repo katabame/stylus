@@ -21,6 +21,8 @@ Existing `.styl` files and Stylus plugins are intended to keep working.
 - Arithmetic only the browser can resolve is kept in CSS math functions: `clamp(1rem, 1vw + 1rem, 2rem)`, and generates `calc()` elsewhere: `width: 100% - 10px` → `calc(100% - 10px)`, `var(--gap) * 2` → `calc(var(--gap) * 2)`. Use parens for divisions, as `/` is a separator in property values: `50% - (var(--w) / 2)`
 - `@import` conditions: `@import url(a.css) layer(base) supports(display: grid) screen`
 - `attr()` with `type()`: `attr(data-w type(<length>), 0px)`
+- Real-world CSS compiles as is, including minified CSS and multi-line values: tested with Bootstrap, Bulma, Pico, Tailwind, Open Props and animate.css
+- `stylus --css` converts modern CSS to Stylus: CSS nesting, `@layer`, `@container`, `@scope`, `@property`...
 - No legacy vendor prefixes: `@keyframes` are no longer duplicated as `@-moz-`, `@-webkit-` and `@-o-keyframes`. Set `vendors = moz webkit o ms official` to restore them
 
 ## Installation

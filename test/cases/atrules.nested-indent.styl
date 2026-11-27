@@ -1,0 +1,12 @@
+@theme default {
+  --a: 1;
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+}
+
+@layer x {
+  @media (hover) {
+    .a { b: c; }
+  }
+}

@@ -1,0 +1,19 @@
+// em and rem are the same unit in media queries
+@media (min-width: 65.625em + 0.0625rem)
+  .a
+    color: red
+
+shift(a, b)
+  a + b
+
+@media (width > shift(40em, 1rem)) and (max-width: 60rem - 1em)
+  .b
+    color: red
+
+// elsewhere they differ
+.c
+  width: shift(1em, 1rem)
+
+@media (width > 1em + 1px)
+  .d
+    color: red

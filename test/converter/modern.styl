@@ -1,0 +1,32 @@
+@layer reset, base
+@layer base
+  .x
+    a: b
+
+@container card (min-width: 1px)
+  .y
+    a: b
+
+@starting-style
+  .z
+    opacity: 0
+
+@custom-media --narrow (width < 30em)
+@property --size
+  syntax: "<length>"
+  inherits: false
+@scope (.card) to (.content)
+  img
+    border: 0
+
+.p
+  color: red
+  &:hover
+    color: blue
+
+  @media (hover)
+    color: green
+  .q
+    a: b
+
+  --shadow: 0 1px red, 0 2px blue

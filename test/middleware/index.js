@@ -30,6 +30,25 @@ describe('middleware', function() {
       });
     });
 
+    it('ignores paths outside of the src and dest directories', function(done){
+      var outside = __dirname + '/../middleware-outside'
+        , req = { method: 'GET', url: '/../middleware-outside.css' };
+      fs.writeFileSync(outside + '.styl', 'body\n  color: #000\n');
+      stylus.middleware({
+        src: __dirname,
+        dest: __dirname
+      })(req, res, function(err) {
+        try {
+          (err === undefined).should.be.true;
+          fs.existsSync(outside + '.css').should.be.false;
+        } finally {
+          fs.unlinkSync(outside + '.styl');
+          if (fs.existsSync(outside + '.css')) fs.unlinkSync(outside + '.css');
+        }
+        done();
+      });
+    });
+
     it('should generate a sourcemap', function(done){
       var req = { method: 'GET', url: '/test.css' }
         , path;

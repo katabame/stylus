@@ -1,3 +1,21 @@
+Unreleased
+===================
+  * **security**: `stylus.middleware()` compiled `.styl` files outside of `src` and wrote CSS outside of `dest` for request paths containing `..` (e.g. `/../outside.css`). Such paths are now ignored
+  * fix: broken input fails with a `ParseError` instead of an internal error: unclosed strings, binary operators missing an operand (`a <` at the end of a line, `&& b`, `= 1`), found by fuzzing
+  * fix: the parser hung on an unclosed attribute selector at the end of the input (`input[typ`), e.g. while editing in watch mode
+  * perf: `@import` paths without glob syntax are looked up directly instead of with `glob` (compiling the nib, kouto-swiss and rupture test cases is ~25% faster than upstream Stylus 0.64.0)
+  * feat: `stylus --css` / `convertCSS()` supports modern CSS: CSS nesting, `@layer`, `@container`, `@scope`, `@starting-style`, `@property`, `@custom-media` and other at-rules, and multi-line values (all 532 files of 9 CSS frameworks now convert and compile back without losing declarations, 390 before)
+  * chore: update @adobe/css-tools from 4.3 to 5.0, which parses modern CSS (4.5 takes minutes on large files)
+  * fix: multi-line custom property values were broken in 0.3.0 (`--shadow:` followed by the value on the next lines)
+  * fix: values continued on several lines until `;`, lines starting with `;`, newlines within parens and lines ending with `and` / `or`
+  * fix: minified CSS: rules following `}` on the same line (`a{b:c}p{c:d}`), `@keyframes` followed by rules
+  * fix: `<=` / `>=` in at-rule preludes (`@container (width >= 400px)`, `@custom-media`)
+  * fix: custom property names starting with a digit (`--00-l`)
+  * fix: `in <color space>` is a CSS keyword (`linear-gradient(to right in oklab, ...)` was evaluated as the `in` operator)
+  * fix: `@keyframes` are output where they are written instead of at the end of the block
+  * fix: indentation of `@keyframes` and `@media` nested in other at-rules
+  * fix: `em` and `rem` are added as the same unit in media queries (`@media (min-width: 40em + 1rem)` is `41em`, not `calc()`), as both are relative to the initial font size there
+
 0.3.0 / 2026-11-27
 ===================
   * **breaking**: arithmetic the browser has to resolve outside CSS math functions now generates `calc()`: `100% - 10px` was compiled to `90%`, `1vw + 1rem` to `2vw`; they are now `calc(100% - 10px)` and `calc(1vw + 1rem)`. `var()` can be used in arithmetic too (`var(--gap) * 2`). Multiplying or dividing two dimensions keeps the previous behavior
