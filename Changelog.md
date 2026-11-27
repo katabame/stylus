@@ -8,6 +8,7 @@ Unreleased
   * fix: empty custom properties (`--foo: ;`)
   * fix: built-in functions (`round()`, `s()`, `p()`...) no longer hijack properties of the same name
   * fix: `calc(a + b)` nested in another function call was output with double parentheses
+  * chore: update glob to 14 to fix moderate vulnerabilities (GHSA-3g3m-2fjr-6pw4, GHSA-g3hv-75wg-m249)
 
 0.1.0 / 2026-11-27 (@katabame/stylus)
 ===================
