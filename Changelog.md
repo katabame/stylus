@@ -1,5 +1,6 @@
 Unreleased
 ===================
+  * fix: source maps: the lines of multi-line values (e.g. `--rules: { ... }`) were counted twice, shifting all the following mappings, `@media` with queries on several lines mapped to the last line, and a spurious mapping was added at the end of each property
   * fix: `stylus --watch` reports a file missing while it's being saved (editors writing and renaming files) instead of exiting, and no longer watches the built-in functions file
   * feat: TypeScript definitions (`index.d.ts`) for the API: `stylus()`, the renderer methods and options, `render()`, `middleware()`, `url()`, `resolver()`, `convertCSS()`
   * fix: `@import '<package>'` finds the stylesheet of CSS packages: their `main` is used only when it's a `.styl` or `.css` file, else their `style` field or `style` export. `@import 'bootstrap'`, `'tailwindcss'` and `'open-props'` imported JavaScript or failed, and `'bulma'` imported its Sass entry
