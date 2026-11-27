@@ -1,4 +1,4 @@
-Unreleased
+0.4.0 / 2026-11-27
 ===================
   * **security**: `stylus.middleware()` compiled `.styl` files outside of `src` and wrote CSS outside of `dest` for request paths containing `..` (e.g. `/../outside.css`). Such paths are now ignored
   * fix: broken input fails with a `ParseError` instead of an internal error: unclosed strings, binary operators missing an operand (`a <` at the end of a line, `&& b`, `= 1`), found by fuzzing
