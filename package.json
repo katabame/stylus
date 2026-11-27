@@ -1,7 +1,7 @@
 {
   "name": "@katabame/stylus",
   "description": "Stylus fork with modern CSS support: robust, expressive, and feature-rich CSS superset",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "katabame",
   "contributors": [
     "TJ Holowaychuk <tj@vision-media.ca> (original Stylus author)",

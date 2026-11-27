@@ -1,4 +1,4 @@
-Unreleased
+0.2.0 / 2026-11-27
 ===================
   * **breaking**: legacy vendor prefixes are no longer generated: the default `vendors` is now `official`, so `@keyframes` aren't duplicated as `@-moz-` / `@-webkit-` / `@-o-keyframes`. Set `vendors = moz webkit o ms official` to restore the previous output
   * feat: CSS `if()` function (`if(style(...): a; media(...): b; else: c)`)
