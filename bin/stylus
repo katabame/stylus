@@ -659,13 +659,20 @@ function displayDeps() {
  */
 
 function compileFile(file) {
+  // in watch mode, a file may be missing for a moment while an editor
+  // saves it (write and rename): report it and wait for the next change
+  function fail(err) {
+    if (!watchers) throw err;
+    console.error(err.stack || err.message);
+  }
+
   // ensure file exists
   fs.stat(file, function(err, stat){
-    if (err) throw err;
+    if (err) return fail(err);
     // file
     if (stat.isFile()) {
       fs.readFile(file, 'utf8', function(err, str){
-        if (err) throw err;
+        if (err) return fail(err);
         options.filename = file;
         options._imports = [];
         var style = stylus(str, options);
@@ -695,7 +702,7 @@ function compileFile(file) {
     // directory
     } else if (stat.isDirectory()) {
       fs.readdir(file, function(err, files){
-        if (err) throw err;
+        if (err) return fail(err);
         files.filter(function(path){
           return path.match(/\.styl$/);
         }).map(function(path){
@@ -774,6 +781,9 @@ function watch(file, rootFile) {
     watchers[file][rootFile] = true;
     return;
   }
+
+  // the built-in functions don't change
+  if (resolve(file) == join(__dirname, '..', 'lib', 'functions', 'index.styl')) return;
 
   // watch the file itself
   watchers[file] = {};
