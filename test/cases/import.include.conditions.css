@@ -1,0 +1,9 @@
+@import url("a.css") screen and (min-width: 1px);
+@import url("a.css") supports(display: grid);
+@import url("a.css") layer(base) supports(selector(:has(a))) screen and (min-width: 1px);
+@import "a.css" print, not screen and (color);
+@import url("a.css") layer;
+@import "import.include._basic.css" screen;
+body {
+  background: red;
+}

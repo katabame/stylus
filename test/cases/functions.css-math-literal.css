@@ -1,0 +1,15 @@
+.a {
+  fluid: clamp(1rem, 1vw + 1rem, 2rem);
+  nested: clamp(1rem, (1vw + 1rem) * 2, 3rem);
+  var: clamp(1px, var(--x) + 1px, 3px);
+  min: min(10px + 5%, 3px);
+  round: round(up, 10px + 1%, 1px);
+  abs: abs(1px - 5%);
+  sign: sign(10px - 1em);
+  keyword: calc-size(auto, size + 10px);
+  keyword-mul: calc-size(fit-content, size * 2);
+  same-unit: max(3px, 1em);
+  mixed-ok: clamp(1rem, 4vw, 3rem);
+  convertible: 1.1s;
+  mod: mod(12px, 3px);
+}

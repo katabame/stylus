@@ -18,6 +18,9 @@ Existing `.styl` files and Stylus plugins are intended to keep working.
 - CSS `if()`: `color: if(style(--theme: dark): white; else: black)`
 - Custom properties with arbitrary values: `--rules: { color: red }`, `--list: [1, 2, 3]`
 - CSS grid line names: `grid-template-columns: [full-start] 1fr [full-end]`
+- Arithmetic only the browser can resolve is kept in CSS math functions: `clamp(1rem, 1vw + 1rem, 2rem)`
+- `@import` conditions: `@import url(a.css) layer(base) supports(display: grid) screen`
+- `attr()` with `type()`: `attr(data-w type(<length>), 0px)`
 - No legacy vendor prefixes: `@keyframes` are no longer duplicated as `@-moz-`, `@-webkit-` and `@-o-keyframes`. Set `vendors = moz webkit o ms official` to restore them
 
 ## Installation

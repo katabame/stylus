@@ -1,0 +1,7 @@
+.a {
+  width: attr(data-w type(<length>), 0px);
+  b: attr(data-x type(<number> | <percentage>));
+  c: attr(data-y type(*));
+  d: attr(data-z px, 1px);
+  e: 'unit';
+}
