@@ -1,4 +1,4 @@
-Unreleased
+0.5.0 / 2026-11-27
 ===================
   * fix: source maps: the lines of multi-line values (e.g. `--rules: { ... }`) were counted twice, shifting all the following mappings, `@media` with queries on several lines mapped to the last line, and a spurious mapping was added at the end of each property
   * fix: `stylus --watch` reports a file missing while it's being saved (editors writing and renaming files) instead of exiting, and no longer watches the built-in functions file
