@@ -141,7 +141,25 @@ Both the inclusive (`..`) and exclusive (`...`) range operators are provided, ex
 
 ### Additive: + -
 
-Multiplicative and additive binary operators work as expected. Type conversion is applied within unit type classes, or default to the literal value. For example `5s - 2px` results in `3s`.
+Multiplicative and additive binary operators work as expected. Type conversion is applied within unit type classes (`5in - 50mm`, `5s - 1000ms`). Units the browser has to resolve, such as `100% - 10px`, generate `calc()`, as well as arithmetic with CSS values such as `var()`:
+
+```stylus
+width: 100% - 10px
+// => width: calc(100% - 10px)
+
+font-size: 1vw + 1rem
+// => font-size: calc(1vw + 1rem)
+
+gap: var(--gap) * 2
+// => gap: calc(var(--gap) * 2)
+
+width: ((100% - 10px) / 3)
+// => width: calc((100% - 10px) / 3)
+```
+
+Within CSS math functions (`clamp()`, `min()`, `max()`, `round()`...), such arithmetic is kept as is: `clamp(1rem, 1vw + 1rem, 2rem)`. In media queries `em` and `rem` are the same unit: `@media (min-width: 40em + 1rem)` yields `41em`.
+
+As `/` is a separator in property values (`font: 12px/1.5`), wrap divisions in parens: `50% - (var(--w) / 2)`, `((100% - 10px) / 3)`.
 
 ```stylus
 15px - 5px
