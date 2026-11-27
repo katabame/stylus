@@ -1,0 +1,18 @@
+.a {
+  incompatible: calc(1vw + 1rem);
+  percent: calc(100% - 10px);
+  var: calc(var(--x) * 2);
+  var-unit: calc(var(--x) + 1px);
+  nested: calc((1vw + 1rem) * 2);
+  variable: calc(100% - 2rem);
+  parens: calc(100% - (1rem + 10px));
+  division: calc(50% - (var(--w) / 2));
+  negate: calc(-1 * (100% - 10px));
+  in-function: translate(calc(100% - 10px)) translate(calc(100% - 10px));
+  same-unit: 3px;
+  unitless: 20px;
+  convertible: 1.1s;
+  dimensions: 10px;
+  strings: 'ab';
+  math: clamp(1rem, 1vw + 1rem, 2rem);
+}

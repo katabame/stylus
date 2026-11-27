@@ -1,5 +1,8 @@
 Unreleased
 ===================
+  * **breaking**: arithmetic the browser has to resolve outside CSS math functions now generates `calc()`: `100% - 10px` was compiled to `90%`, `1vw + 1rem` to `2vw`; they are now `calc(100% - 10px)` and `calc(1vw + 1rem)`. `var()` can be used in arithmetic too (`var(--gap) * 2`). Multiplying or dividing two dimensions keeps the previous behavior
+  * feat: Stylus values are evaluated in CSS `if()` branches, and `{expr}` is interpolated in its conditions
+  * fix: empty custom properties in the indented syntax (`--foo:` followed by a newline)
   * fix: arithmetic the browser has to resolve is kept within CSS math functions: `clamp(1rem, 1vw + 1rem, 2rem)` was compiled to `clamp(1rem, 2vw, 2rem)`, `abs(1px - 5%)` to `0.95px`, `calc-size(auto, size + 10px)` to `calc-size(auto, size10px)`
   * feat: CSS `@import` conditions: `layer()`, `supports()` and media queries (`supports(display: grid)` was output as `supports()`). Conditional CSS imports are not inlined with `include css`
   * feat: CSS `type()` in `attr()` (`attr(data-w type(<length>), 0px)`)

@@ -1,5 +1,5 @@
 .a {
-  color: if(style(--x: 1): red; else: blue);
+  color: if(style(--x: 1): #f00; else: #00f);
 }
 .b {
   width: if(media(width > 600px): 10px; supports(display: grid): 20px; else: 30px);
@@ -10,4 +10,9 @@
   color: #f00;
   width: 1;
   height: 1px;
+}
+.d {
+  color: if(style(--x: 1): #abc; else: #93a8be);
+  width: if(media(width > 600px): 1200px; else: 3px);
+  combined: if(style(--x: 1) and media(print): 1px; else: 2px);
 }

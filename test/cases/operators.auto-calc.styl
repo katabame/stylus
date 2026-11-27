@@ -1,0 +1,21 @@
+gap = 1rem
+
+.a
+  incompatible: 1vw + 1rem
+  percent: 100% - 10px
+  var: var(--x) * 2
+  var-unit: var(--x) + 1px
+  nested: (1vw + 1rem) * 2
+  variable: 100% - gap * 2
+  parens: 100% - (gap + 10px)
+  division: 50% - (var(--w) / 2)
+  negate: -(100% - 10px)
+  in-function: translate(calc(100% - 10px)) translate(100% - 10px)
+  // computable expressions are still evaluated
+  same-unit: 1px + 2px
+  unitless: 10px * 2
+  convertible: 1s + 100ms
+  dimensions: 2px * 5em
+  strings: 'a' + 'b'
+  // left as is within CSS math functions
+  math: clamp(1rem, 1vw + 1rem, 2rem)
