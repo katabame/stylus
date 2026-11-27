@@ -8,6 +8,7 @@ Unreleased
   * fix: `in <color space>` is a CSS keyword (`linear-gradient(to right in oklab, ...)` was evaluated as the `in` operator)
   * fix: `@keyframes` are output where they are written instead of at the end of the block
   * fix: indentation of `@keyframes` and `@media` nested in other at-rules
+  * fix: `em` and `rem` are added as the same unit in media queries (`@media (min-width: 40em + 1rem)` is `41em`, not `calc()`), as both are relative to the initial font size there
 
 0.3.0 / 2026-11-27
 ===================
