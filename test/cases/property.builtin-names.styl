@@ -1,0 +1,13 @@
+.a
+  s: 1px
+  p: 2
+  round: round(1.5px)
+  rgb: 1
+
+// user-defined transparent mixins still apply
+border-radius()
+  -webkit-border-radius: arguments
+  border-radius: arguments
+
+.b
+  border-radius: 5px

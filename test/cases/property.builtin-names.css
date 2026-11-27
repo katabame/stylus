@@ -1,0 +1,10 @@
+.a {
+  s: 1px;
+  p: 2;
+  round: 2px;
+  rgb: 1;
+}
+.b {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}

@@ -1,0 +1,31 @@
+bp = 600px
+
+@media (width < 400px) or (width > 800px)
+  .a
+    color: red
+
+@media screen and (not (hover: hover))
+  .b
+    color: red
+
+@media ((width < 1px) or (orientation: portrait)) and (hover)
+  .c
+    color: red
+
+@media (width < bp) or (min-width: bp * 2)
+  .d
+    color: red
+
+@media screen and (width < 1px) or (hover)
+  .e
+    color: red
+
+@media not (hover), print and (not (color))
+  .f
+    color: red
+
+@media (width < 1px) or (hover)
+  .g
+    color: red
+    @media (min-width: 5px)
+      color: blue

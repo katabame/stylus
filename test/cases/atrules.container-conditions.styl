@@ -1,0 +1,19 @@
+@container (width > 400px) and (height > 400px) {
+  .a { color: red; }
+}
+
+@container card (min-width: 1px) or (orientation: portrait)
+  .b
+    color: red
+
+@container not (width > 1px)
+  .c
+    color: red
+
+@container style(--x: 1) and (not (width > 1px))
+  .d
+    color: red
+
+.e
+  @container (a: 1px) and (b: 2px)
+    color: red
