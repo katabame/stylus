@@ -1,5 +1,6 @@
 Unreleased
 ===================
+  * **security**: `stylus.middleware()` compiled `.styl` files outside of `src` and wrote CSS outside of `dest` for request paths containing `..` (e.g. `/../outside.css`). Such paths are now ignored
   * fix: broken input fails with a `ParseError` instead of an internal error: unclosed strings, binary operators missing an operand (`a <` at the end of a line, `&& b`, `= 1`), found by fuzzing
   * fix: the parser hung on an unclosed attribute selector at the end of the input (`input[typ`), e.g. while editing in watch mode
   * perf: `@import` paths without glob syntax are looked up directly instead of with `glob` (compiling the nib, kouto-swiss and rupture test cases is ~25% faster than upstream Stylus 0.64.0)
