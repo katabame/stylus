@@ -39,7 +39,7 @@ describe('middleware', function() {
         dest: __dirname
       })(req, res, function(err) {
         try {
-          (err === undefined).should.be.true;
+          (null == err).should.be.true;
           fs.existsSync(outside + '.css').should.be.false;
         } finally {
           fs.unlinkSync(outside + '.styl');

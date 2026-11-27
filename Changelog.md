@@ -1,3 +1,7 @@
+Unreleased
+===================
+  * fix: no `url.parse()` deprecation warning (DEP0169) on Node.js 26 when using `url()` (`stylus.url()`), `stylus.resolver()` or `stylus.middleware()`. The middleware uses the WHATWG `URL`, which also resolves `..` in request paths
+
 0.4.0 / 2026-11-27
 ===================
   * **security**: `stylus.middleware()` compiled `.styl` files outside of `src` and wrote CSS outside of `dest` for request paths containing `..` (e.g. `/../outside.css`). Such paths are now ignored
