@@ -1,5 +1,7 @@
 Unreleased
 ===================
+  * feat: `stylus --css` / `convertCSS()` supports modern CSS: CSS nesting, `@layer`, `@container`, `@scope`, `@starting-style`, `@property`, `@custom-media` and other at-rules, and multi-line values (all 532 files of 9 CSS frameworks now convert and compile back without losing declarations, 390 before)
+  * chore: update @adobe/css-tools from 4.3 to 5.0, which parses modern CSS (4.5 takes minutes on large files)
   * fix: multi-line custom property values were broken in 0.3.0 (`--shadow:` followed by the value on the next lines)
   * fix: values continued on several lines until `;`, lines starting with `;`, newlines within parens and lines ending with `and` / `or`
   * fix: minified CSS: rules following `}` on the same line (`a{b:c}p{c:d}`), `@keyframes` followed by rules

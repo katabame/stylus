@@ -33,7 +33,7 @@
     "test": "mocha test/ test/middleware/ --require chai --bail --check-leaks --reporter dot"
   },
   "dependencies": {
-    "@adobe/css-tools": "~4.3.3",
+    "@adobe/css-tools": "^5.0.0",
     "debug": "^4.3.2",
     "glob": "^14.0.6",
     "sax": "~1.4.1",
