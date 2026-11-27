@@ -1,10 +1,10 @@
-# Stylum
+# @katabame/stylus
 
-Stylum is a CSS preprocessor based on [Stylus](https://github.com/stylus/stylus), providing an efficient, dynamic, and expressive way to generate CSS. It supports both an indented syntax and regular CSS style, and aims to keep up with modern CSS.
+A fork of [Stylus](https://github.com/stylus/stylus), the CSS preprocessor providing an efficient, dynamic, and expressive way to generate CSS. It supports both an indented syntax and regular CSS style, and aims to keep up with modern CSS.
 
-Stylum is named with respect to Stylus, the language it builds upon. Existing `.styl` files and Stylus plugins are intended to keep working.
+Existing `.styl` files and Stylus plugins are intended to keep working.
 
-## What's new compared to Stylus
+## What's new compared to upstream Stylus
 
 - Cascade layers: `@layer reset, base;`, `@layer name { ... }`
 - `@container`, `@layer`, `@scope` and `@starting-style` can be nested in selectors and bubble up like `@media`
@@ -18,7 +18,7 @@ Stylum is named with respect to Stylus, the language it builds upon. Existing `.
 ## Installation
 
 ```bash
-$ npm install stylum -g
+$ npm install @katabame/stylus -g
 ```
 
 ## Basic Usage
@@ -26,21 +26,21 @@ $ npm install stylum -g
 Watch and compile a file from command line with
 
 ```bash
-stylum -w style.styl -o style.css
+stylus -w style.styl -o style.css
 ```
 
 From JavaScript:
 
 ```js
-const stylum = require('stylum');
+const stylus = require('@katabame/stylus');
 
-stylum.render('.a\n  color: red', (err, css) => {
+stylus.render('.a\n  color: red', (err, css) => {
   if (err) throw err;
   console.log(css);
 });
 ```
 
-The language reference of Stylus applies to Stylum: see the [Stylus documentation](https://stylus-lang.com/).
+See the [Stylus documentation](https://stylus-lang.com/) for the language reference.
 
 ### Code of Conduct
 
@@ -52,7 +52,7 @@ Please read our [Contribution Guide](Contributing.md) before making any pull req
 
 ## Credits
 
-Stylum is a fork of [Stylus](https://github.com/stylus/stylus), created by [TJ Holowaychuk](https://github.com/tj) and developed by the [Stylus maintainers](https://github.com/orgs/stylus/people) and [contributors](https://github.com/stylus/stylus/graphs/contributors). Thank you to everyone who built Stylus.
+This project is a fork of [Stylus](https://github.com/stylus/stylus), created by [TJ Holowaychuk](https://github.com/tj) and developed by the [Stylus maintainers](https://github.com/orgs/stylus/people) and [contributors](https://github.com/stylus/stylus/graphs/contributors). Thank you to everyone who built Stylus.
 
 ## License
 

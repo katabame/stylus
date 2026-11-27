@@ -162,7 +162,7 @@ var ext = '.css';
 
 var usage = [
     ''
-  , '  Usage: stylum [options] [command] [< in [> out]]'
+  , '  Usage: stylus [options] [command] [< in [> out]]'
   , '                [file|dir ...]'
   , ''
   , '  Commands:'
@@ -175,18 +175,18 @@ var usage = [
   , '  Options:'
   , ''
   , '    -i, --interactive       Start interactive REPL'
-  , '    -u, --use <path>        Utilize the Stylum (or Stylus) plugin at <path>'
+  , '    -u, --use <path>        Utilize the Stylus plugin at <path>'
   , '    -U, --inline            Utilize image inlining via data URI support'
   , '    -w, --watch             Watch file(s) for changes and re-compile'
   , '    -o, --out <dir>         Output to <dir> when passing files'
-  , '    -C, --css <src> [dest]  Convert CSS input to Stylum'
+  , '    -C, --css <src> [dest]  Convert CSS input to Stylus'
   , '    -I, --include <path>    Add <path> to lookup paths'
   , '    -c, --compress          Compress CSS output'
   , '    -d, --compare           Display input along with output'
   , '    -f, --firebug           Emits debug infos in the generated CSS that'
   , '                            can be used by the FireStylus Firebug plugin'
 	, '    -l, --line-numbers      Emits comments in the generated CSS'
-  , '                            indicating the corresponding Stylum line'
+  , '                            indicating the corresponding Stylus line'
   , '    -m, --sourcemap         Generates a sourcemap in sourcemaps v3 format'
 	, '    -q, --quiet     				 Less noisy output'
   , '    --sourcemap-inline      Inlines sourcemap with full source text in base64 format'
@@ -194,7 +194,7 @@ var usage = [
   , '    --sourcemap-base <path> Base <path> from which sourcemap and all sources are relative'
   , '    -P, --prefix [prefix]   prefix all css classes'
   , '    -p, --print             Print out the compiled CSS'
-  , '    --import <file>         Import stylum <file>'
+  , '    --import <file>         Import stylus <file>'
   , '    --include-css           Include regular CSS on @import'
   , '	 --ext			 Specify custom file extension for compiled file, default .css'	
   , '    -D, --deps              Display dependencies of the compiled file'
@@ -202,7 +202,7 @@ var usage = [
   , '    --hoist-atrules         Move @import and @charset to the top'
   , '    -r, --resolve-url       Resolve relative urls inside imports'
   , '    --resolve-url-nocheck   Like --resolve-url but without file existence check'
-  , '    -V, --version           Display the version of Stylum'
+  , '    -V, --version           Display the version of Stylus'
   , '    -h, --help              Display help information'
   , ''
 ].join('\n');
@@ -451,7 +451,7 @@ var options = {
 
 var str = '';
 
-// Convert CSS to Stylum
+// Convert CSS to Stylus
 
 if (convertCSS) {
     switch (files.length) {
@@ -486,7 +486,7 @@ if (convertCSS) {
 }
 
 /**
- * Start Stylum REPL.
+ * Start Stylus REPL.
  */
 
 function repl() {
@@ -566,7 +566,7 @@ function repl() {
 }
 
 /**
- * Highlight the given string of Stylum.
+ * Highlight the given string of Stylus.
  */
 
 function highlight(str) {
@@ -779,7 +779,7 @@ function watch(file, rootFile) {
   watchers[file] = {};
   watchers[file][rootFile] = true;
   if (print) {
-    console.error('Stylum CLI Error: Watch and print cannot be used together');
+    console.error('Stylus CLI Error: Watch and print cannot be used together');
     process.exit(1);
   }
   if(!quiet){

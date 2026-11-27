@@ -4,13 +4,13 @@ name: CI
 # Triggers the workflow on push or pull request events
 on:
   push:
-    branches: [stylum]
+    branches: [main]
     tags: ['**']
   pull_request:
 
 jobs:
   node_tests:
-    name: 'Test stylum on ${{matrix.os}} with node${{matrix.node}}'
+    name: 'Test stylus on ${{matrix.os}} with node${{matrix.node}}'
     strategy:
       fail-fast: false
       matrix:
@@ -31,7 +31,7 @@ jobs:
        run: npm run test
 
   benchmark:
-    name: 'Run stylum benchmark with node26'
+    name: 'Run stylus benchmark with node26'
     runs-on: ubuntu-latest
     steps:
      - uses: actions/checkout@v7
@@ -46,7 +46,7 @@ jobs:
        run: node ./bm.js
 
   yarn-regression:
-    name: 'yarn exec stylum regression test'
+    name: 'yarn exec stylus regression test'
     runs-on: macos-latest
     steps:
      - uses: actions/checkout@v7
@@ -59,7 +59,7 @@ jobs:
        run: npm install -g yarn
      - name: Run Yarn
        working-directory: ./test/yarn
-       run: yarn install && yarn add file:../.. && yarn run stylum --version
+       run: yarn install && yarn add file:../.. && yarn run stylus --version
 
   coverage:
     name: 'Run nyc for code coverage'
@@ -77,7 +77,7 @@ jobs:
        run: npx nyc@latest npm run test
 
   deno_tests:
-    name: 'Test stylum on ${{matrix.os}} with deno 2'
+    name: 'Test stylus on ${{matrix.os}} with deno 2'
     strategy:
       fail-fast: false
       matrix:

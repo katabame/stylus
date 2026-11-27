@@ -1,6 +1,6 @@
 {
-  "name": "stylum",
-  "description": "Modern CSS preprocessor based on Stylus: robust, expressive, and feature-rich CSS superset",
+  "name": "@katabame/stylus",
+  "description": "Stylus fork with modern CSS support: robust, expressive, and feature-rich CSS superset",
   "version": "0.1.0",
   "author": "katabame",
   "contributors": [
@@ -18,7 +18,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/katabame/stylum.git"
+    "url": "git+https://github.com/katabame/stylus.git"
   },
   "main": "./index.js",
   "browserify": "./lib/browserify.js",
@@ -26,7 +26,7 @@
     "node": ">=22"
   },
   "bin": {
-    "stylum": "bin/stylum"
+    "stylus": "bin/stylus"
   },
   "scripts": {
     "prepublish": "npm prune",
@@ -44,13 +44,16 @@
     "mocha": "^11.1.0"
   },
   "bugs": {
-    "url": "https://github.com/katabame/stylum/issues"
+    "url": "https://github.com/katabame/stylus/issues"
   },
-  "homepage": "https://github.com/katabame/stylum",
+  "homepage": "https://github.com/katabame/stylus",
   "directories": {
     "doc": "docs",
     "example": "examples",
     "test": "test"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }
