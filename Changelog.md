@@ -1,6 +1,7 @@
 0.1.0 / 2026-11-27 (Stylum)
 ===================
   * project forked from Stylus 0.64.0 and renamed to Stylum (CLI: `stylum`)
+  * require Node.js 22 or later; CI runs on Node.js 22 / 24 / 26 and Deno 2
   * feat: `@layer` statement lists (`@layer reset, base;`)
   * feat: `@container`, `@layer`, `@scope` and `@starting-style` bubble up when nested in selectors
   * feat: CSS `@scope (<start>) to (<end>)` at-rule

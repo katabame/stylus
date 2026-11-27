@@ -23,7 +23,7 @@
   "main": "./index.js",
   "browserify": "./lib/browserify.js",
   "engines": {
-    "node": ">=16"
+    "node": ">=22"
   },
   "bin": {
     "stylum": "bin/stylum"

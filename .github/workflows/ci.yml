@@ -4,7 +4,7 @@ name: CI
 # Triggers the workflow on push or pull request events
 on:
   push:
-    branches: [stylum, main, dev, master]
+    branches: [stylum]
     tags: ['**']
   pull_request:
 
@@ -12,107 +12,83 @@ jobs:
   node_tests:
     name: 'Test stylum on ${{matrix.os}} with node${{matrix.node}}'
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        node: [22]
+        # Supported LTS lines (active + maintenance)
+        node: [22, 24, 26]
     runs-on: ${{ matrix.os }}
     steps:
-     # Pull repo to test machine
-     - uses: actions/checkout@v4
-     # Configures the node version used on GitHub-hosted runners
-     - uses: actions/setup-node@v4
-       with:
-         # The Node.js version to configure
-         node-version: ${{matrix.node}}
-     - name: Install npm dependencies
-       run: npm install
-     - name: Print node & npm version
-       # Output useful info for debugging.
-       run: node --version && npm --version 
-     - name: Run Test
-       run: npm run test
-
-  compat_node_tests:
-    name: 'Compat test stylum on ${{matrix.os}} with node${{matrix.node}}'
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [16, 18, 20, 23]
-    runs-on: ${{ matrix.os }}
-    steps:
-     - uses: actions/checkout@v4
-     - uses: actions/setup-node@v4
+     - uses: actions/checkout@v7
+     - uses: actions/setup-node@v7
        with:
          node-version: ${{ matrix.node }}
      - name: Install npm dependencies
        run: npm install
-     - name: Print put node & npm version
-       run: node --version && npm --version 
+     - name: Print node & npm version
+       run: node --version && npm --version
      - name: Run Test
        run: npm run test
 
   benchmark:
-    name: 'Run stylum benchmark with node20'
+    name: 'Run stylum benchmark with node26'
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v4
-     - uses: actions/setup-node@v4
+     - uses: actions/checkout@v7
+     - uses: actions/setup-node@v7
        with:
-         node-version: '22'
+         node-version: 26
      - name: Install npm dependencies
        run: npm install
-     - name: Print put node & npm version
-       run: node --version && npm --version 
+     - name: Print node & npm version
+       run: node --version && npm --version
      - name: Run Benchmark
        run: node ./bm.js
-  
+
   yarn-regression:
     name: 'yarn exec stylum regression test'
     runs-on: macos-latest
     steps:
-     - uses: actions/checkout@v4
-     - uses: actions/setup-node@v4
+     - uses: actions/checkout@v7
+     - uses: actions/setup-node@v7
        with:
-         node-version: '22'
-     - name: Print put node & npm version
+         node-version: 26
+     - name: Print node & npm version
        run: node --version && npm --version
      - name: Install yarn global
        run: npm install -g yarn
      - name: Run Yarn
        working-directory: ./test/yarn
        run: yarn install && yarn add file:../.. && yarn run stylum --version
-  
+
   coverage:
     name: 'Run nyc for code coverage'
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v4
-     - uses: actions/setup-node@v4
+     - uses: actions/checkout@v7
+     - uses: actions/setup-node@v7
        with:
-         node-version: '22'
-     - name: Print put node & npm version
+         node-version: 26
+     - name: Print node & npm version
        run: node --version && npm --version
      - name: Install npm dependencies
        run: npm install
      - name: Run nyc
        run: npx nyc@latest npm run test
-    
+
   deno_tests:
-    name: 'Test stylum on ${{matrix.os}} with latest stable deno'
+    name: 'Test stylum on ${{matrix.os}} with deno 2'
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-     # Pull repo to test machine
-     - uses: actions/checkout@v4
-     # Configures the deno version used on GitHub-hosted runners
+     - uses: actions/checkout@v7
      - uses: denoland/setup-deno@v2
        with:
-         # Run with latest stable Deno
-         deno-version: v1.x
+         deno-version: v2.x
      - name: Print deno version
-       # Output useful info for debugging.
        run: deno --version
      - name: Run Test
        run: deno run -A deno/test.ts
