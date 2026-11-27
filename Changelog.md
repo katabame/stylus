@@ -1,3 +1,7 @@
+Unreleased
+===================
+  * fix: CSS math functions with arguments the browser has to resolve (e.g. `min(92vw, 50vh)`) were computed by Stylus when the built-in functions had been parsed before with another file name, as bundlers do while collecting dependencies (Parcel). Built-in functions are now recognized regardless of the parse cache
+
 0.5.0 / 2026-11-27
 ===================
   * fix: source maps: the lines of multi-line values (e.g. `--rules: { ... }`) were counted twice, shifting all the following mappings, `@media` with queries on several lines mapped to the last line, and a spurious mapping was added at the end of each property
