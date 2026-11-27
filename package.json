@@ -29,7 +29,6 @@
     "stylus": "bin/stylus"
   },
   "scripts": {
-    "prepublish": "npm prune",
     "test": "mocha test/ test/middleware/ --require chai --bail --check-leaks --reporter dot"
   },
   "dependencies": {
